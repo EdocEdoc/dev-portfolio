@@ -80,6 +80,8 @@
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
       }
 
       .name {
@@ -113,6 +115,7 @@
 
       .section {
         margin: 4rem 0;
+        animation: fadeIn 0.8s ease-in-out;
       }
 
       .section-title {
@@ -151,12 +154,12 @@
         border-radius: 8px;
         padding: 1.5rem;
         border: 1px solid var(--border-color);
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
       }
 
       .card-header {
@@ -205,12 +208,29 @@
         border-radius: 20px;
         font-size: 0.8rem;
         font-weight: 500;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeIn 0.5s ease-in-out forwards;
       }
 
-      .skill-tag:hover {
-        background-color: rgba(100, 108, 255, 0.3);
-        transform: translateY(-2px);
+      .skill-tag:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .skill-tag:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .skill-tag:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .skill-tag:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .skill-tag:nth-child(5) {
+        animation-delay: 0.5s;
       }
 
       .skills-container {
@@ -311,14 +331,14 @@
         padding: 0.8rem 1.5rem;
         border-radius: 8px;
         font-weight: 500;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
         border: none;
         cursor: pointer;
       }
 
       .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(100, 108, 255, 0.5);
       }
 
       .about-grid {
@@ -367,6 +387,23 @@
         .cards {
           grid-template-columns: 1fr;
         }
+      }
+
+      /* Add fade-in animation for sections */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Add smooth scroll for anchor links */
+      html {
+        scroll-behavior: smooth;
       }
     </style>
   </head>
