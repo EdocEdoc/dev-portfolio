@@ -1,6 +1,6 @@
 # Vince Aaron Genodipa - Developer Portfolio
 
-![Portfolio Banner](/api/placeholder/1200/300)
+<!-- ![Portfolio Banner](/api/placeholder/1200/300) -->
 
 ## 📋 Overview
 
@@ -22,7 +22,7 @@ This is the personal developer portfolio for Vince Aaron Genodipa, a Software En
 
 ## 🚀 Live Demo
 
-Visit the live portfolio at: [https://vince-aaron.dev](https://vince-aaron.dev)
+Visit the live portfolio at: [https://vince-aaron.dev](https://edocedoc.github.io/dev-portfolio/)
 
 ## 🛠️ Technologies Used
 
@@ -61,6 +61,7 @@ portfolio/
    ```
 
 3. **Open the project**
+
    - Open `index.html` in your browser to view the portfolio locally.
    - Alternatively, set up a local development server:
 
