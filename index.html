@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vince Aaron Genodipa | Software Engineer</title>
+    <style>
+      :root {
+        --primary-purple: #646cff;
+        --primary-purple-hover: #747bff;
+        --gradient-1: linear-gradient(45deg, #bd34fe 30%, #41d1ff);
+        --gradient-2: linear-gradient(45deg, #ffdb4d, #ff7730);
+        --dark-bg: #242424;
+        --light-text: rgba(255, 255, 255, 0.87);
+        --card-bg: #1a1a1a;
+        --border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--primary-purple);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: var(--primary-purple-hover);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 4rem 1rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: var(--gradient-1);
+        opacity: 0.1;
+        z-index: -1;
+        transform: rotate(-5deg);
+      }
+
+      .profile {
+        margin-bottom: 2rem;
+      }
+
+      .profile img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .name {
+        font-size: 3rem;
+        margin: 1rem 0;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .contact {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .section {
+        margin: 4rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--gradient-1);
+        border-radius: 10px;
+      }
+
+      .summary {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        text-align: center;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 0.5rem;
+      }
+
+      .card-date {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        white-space: nowrap;
+      }
+
+      .card-content ul {
+        padding-left: 1.5rem;
+      }
+
+      .card-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .skill-tag {
+        background-color: rgba(100, 108, 255, 0.2);
+        color: var(--primary-purple);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .skill-tag:hover {
+        background-color: rgba(100, 108, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        justify-content: space-around;
+      }
+
+      .skills-column {
+        flex: 1;
+        min-width: 240px;
+      }
+
+      .skills-category {
+        margin-bottom: 2rem;
+      }
+
+      .skills-category h3 {
+        color: var(--primary-purple);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .skills-list {
+        list-style: none;
+      }
+
+      .skills-list li {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .skills-list li::before {
+        content: "•";
+        color: var(--primary-purple);
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .projects {
+        margin-top: 4rem;
+      }
+
+      .project-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1rem;
+        margin-top: 4rem;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid var(--border-color);
+      }
+
+      .cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 0;
+        padding: 2rem;
+        background-color: rgba(100, 108, 255, 0.1);
+        border-radius: 12px;
+        border: 1px solid rgba(100, 108, 255, 0.2);
+      }
+
+      .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .cta p {
+        margin-bottom: 2rem;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--gradient-1);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .about-content {
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .education {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 2rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .education h3 {
+        color: var(--primary-purple);
+        margin-bottom: 1rem;
+      }
+
+      .honors {
+        margin-top: 1.5rem;
+      }
+
+      .honors h4 {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .name {
+          font-size: 2.5rem;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="profile">
+          <!-- <img src="/api/placeholder/150/150" alt="Vince Aaron Genodipa" /> -->
+        </div>
+        <h1 class="name">Vince Aaron Genodipa</h1>
+        <h2 class="title">Software Engineer</h2>
+        <div class="contact">
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+              />
+            </svg>
+            <a href="mailto:vagenodipa@gmail.com">vagenodipa@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+              />
+            </svg>
+            <a href="tel:+639773378316">+63 977 337 8316</a>
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+              />
+            </svg>
+            <span>Argao Cebu, Philippines</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <p class="summary">
+          Experienced Mobile and Web Developer with 4 years of expertise in
+          cross-platform development for iOS, Android, and Web Applications.
+          Skilled in building and deploying full-stack applications using modern
+          frameworks and technologies. Proficient in React Native, Xamarin,
+          React.js, and .NET, with a strong background in UI/UX design, cloud
+          services, and version control.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Mobile Developer</h3>
+                <p class="card-subtitle">MIMS</p>
+              </div>
+              <p class="card-date">Oct 2023 - Present</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>
+                  Supported two React Native applications, responsible for
+                  feature development, bug fixes, and production deployment for
+                  both iOS and Android versions.
+                </li>
+                <li>
+                  Collaborated with the team to develop a feature generating
+                  company revenue through ad banners.
+                </li>
+                <li>
+                  Contributed to a feature improving user session retention by
+                  3%
+                </li>
+                <li>
+                  Assisted in increasing course enrollment in emerging markets
+                  like the Philippines and Singapore by over 10%.
+                </li>
+                <li>
+                  Helped optimize application load time by 70%, using
+                  pagination, data cache and pre-fetching.
+                </li>
+                <li>
+                  Implemented analytics using Google Analytics for the business
+                  team, leading to the development of more than three
+                  user-driven features based on metrics.
+                </li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">iOS</span>
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">Google Analytics</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  Team Lead | Senior Application Developer
+                </h3>
+                <p class="card-subtitle">BytePulse IT Solutions</p>
+              </div>
+              <p class="card-date">Dec 2022 - Present</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>Supplier of business mobile app solutions.</li>
+                <li>
+                  Led development efforts across multiple projects, ensuring
+                  high-quality code and efficient workflows.
+                </li>
+                <li>
+                  Worked on 2 .NET API projects and developed 7 React Native
+                  mobile applications.
+                </li>
+                <li>Developed and maintained 2 Xamarin mobile applications.</li>
+                <li>
+                  Built and deployed 2 web applications using React.js/TSX and
+                  integrated Microsoft Teams.
+                </li>
+                <li>
+                  Developed and deployed 5 WordPress websites using Elementor
+                  and SiteGround.
+                </li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">.NET</span>
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">Xamarin</span>
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">WordPress</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Mobile Developer Consultant</h3>
+                <p class="card-subtitle">RedCoreSolutions (Contract)</p>
+              </div>
+              <p class="card-date">Jul 2022</p>
+            </div>
+            <div class="card-content">
+              <p><strong>Singlife Plan & Protect PH APP</strong></p>
+              <ul>
+                <li>
+                  Designed and implemented features and functionalities for both
+                  iOS and Android platforms.
+                </li>
+                <li>
+                  Ensured smooth performance, responsiveness, and cross-platform
+                  compatibility.
+                </li>
+                <li>
+                  Regularly updated the app to include new features, bug fixes,
+                  and performance improvements.
+                </li>
+                <li>
+                  Collaborated with backend developers and UX/UI teams to
+                  deliver a seamless user experience.
+                </li>
+                <li>
+                  Managed app deployment and updates via App Store and Google
+                  Play.
+                </li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Mobile Development</span>
+              <span class="skill-tag">iOS</span>
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">App Store</span>
+              <span class="skill-tag">Google Play</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  Mobile Developer | Team Lead - Full Stack
+                </h3>
+                <p class="card-subtitle">Convrtx (Contract)</p>
+              </div>
+              <p class="card-date">Feb 2022</p>
+            </div>
+            <div class="card-content">
+              <p>
+                <strong>Canco App, MEME App, GOWild App, Fitness App</strong>
+              </p>
+              <ul>
+                <li>
+                  Led a team of 10+ to build and maintain 4 React Native mobile
+                  applications, landing and promotional pages using
+                  React.js/TSX, and an admin dashboard with a Node.js back-end.
+                </li>
+                <li>
+                  Developed and maintained a social media React Native mobile
+                  application.
+                </li>
+                <li>
+                  Implemented user authentication using Facebook, Twitter, and
+                  Google.
+                </li>
+                <li>Managed data storage and file handling.</li>
+                <li>Ensured a responsive UI across different devices.</li>
+                <li>
+                  Integrated Firebase services including authentication,
+                  messaging, and storage.
+                </li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Firebase</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section projects">
+        <h2 class="section-title">Notable Projects</h2>
+        <div class="cards">
+          <div class="card project-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  CashHandler App, AIMS App, Tagbalay App
+                </h3>
+                <p class="card-subtitle">Ramon Aboitiz Foundation Inc.</p>
+              </div>
+              <p class="card-date">Feb 2022</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>Implemented cashflow report generation as a PDF file.</li>
+                <li>
+                  Handled local data storage & file handling permissions &
+                  report generation in Excel format.
+                </li>
+                <li>
+                  Managed device access permissions for local data storage &
+                  file handling.
+                </li>
+                <li>Integrated CI/CD for Xamarin in Azure DevOps pipeline.</li>
+                <li>Integrated API for data consolidation & syncing.</li>
+                <li>Implemented Microsoft Graph API for authentication.</li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Xamarin</span>
+              <span class="skill-tag">Azure DevOps</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Microsoft Graph API</span>
+              <span class="skill-tag">PDF Generation</span>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Singlife Plan & Protect PH App</h3>
+                <p class="card-subtitle">RedCoreSolutions</p>
+              </div>
+              <p class="card-date">Jul 2022</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>
+                  Designed and implemented features for iOS and Android
+                  platforms.
+                </li>
+                <li>Ensured cross-platform compatibility and responsive UI.</li>
+                <li>
+                  Regularly updated with new features and performance
+                  improvements.
+                </li>
+                <li>Managed app deployment via App Store and Google Play.</li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">iOS</span>
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">App Deployment</span>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Social Media Applications</h3>
+                <p class="card-subtitle">Convrtx</p>
+              </div>
+              <p class="card-date">Feb 2022</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>
+                  Built and maintained multiple social media and lifestyle apps.
+                </li>
+                <li>
+                  Implemented social authentication (Facebook, Twitter, Google).
+                </li>
+                <li>Integrated Firebase services for real-time features.</li>
+                <li>Created responsive UIs across multiple device types.</li>
+              </ul>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">Social Auth</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">Responsive UI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-container">
+          <div class="skills-column">
+            <div class="skills-category">
+              <h3>Mobile Development</h3>
+              <ul class="skills-list">
+                <li>React Native (Expo CLI, React Native CLI)</li>
+                <li>Xamarin (.NET, XAML)</li>
+                <li>iOS & Android Development</li>
+                <li>Mobile UI/UX Design</li>
+                <li>App Store & Google Play Deployment</li>
+              </ul>
+            </div>
+
+            <div class="skills-category">
+              <h3>Web Development</h3>
+              <ul class="skills-list">
+                <li>JavaScript / TypeScript</li>
+                <li>React.js</li>
+                <li>.NET</li>
+                <li>HTML / CSS</li>
+                <li>Bootstrap</li>
+                <li>WordPress / Elementor</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skills-column">
+            <div class="skills-category">
+              <h3>Technologies & Platforms</h3>
+              <ul class="skills-list">
+                <li>Git / Github</li>
+                <li>Microsoft Azure DevOps</li>
+                <li>Office 365</li>
+                <li>Firebase</li>
+                <li>Heroku</li>
+                <li>CI/CD Pipelines</li>
+              </ul>
+            </div>
+
+            <div class="skills-category">
+              <h3>Professional Skills</h3>
+              <ul class="skills-list">
+                <li>Team Leadership</li>
+                <li>Project Management</li>
+                <li>Cross-functional Collaboration</li>
+                <li>Problem Solving</li>
+                <li>Technical Documentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-content">
+            <p>
+              I'm a passionate software engineer with a focus on creating
+              efficient, scalable, and user-friendly digital solutions. With 4
+              years of experience in cross-platform development, I've
+              successfully delivered numerous mobile and web applications across
+              various industries.
+            </p>
+            <br />
+            <p>
+              As a team leader and developer, I pride myself on writing clean,
+              maintainable code and creating intuitive user experiences. My goal
+              is to leverage technology to solve real-world problems and deliver
+              value to businesses and end-users alike.
+            </p>
+            <br />
+            <p>
+              I continuously expand my knowledge in emerging technologies and
+              best practices to stay at the forefront of software development.
+            </p>
+          </div>
+
+          <div class="education">
+            <h3>Education</h3>
+            <p>
+              <strong>Bachelor of Science in Information Technology</strong>
+            </p>
+            <p>Cebu Technological University Argao Campus</p>
+            <p><em>Magna Cum Laude</em></p>
+
+            <div class="honors">
+              <h4>Honors & Awards</h4>
+              <ul class="skills-list">
+                <li>
+                  Social Responsibility and Civic Engagement Awardee (ROTC)
+                </li>
+                <li>Best Capstone Project Awardee</li>
+                <li>Programmer Of the Year Awardee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta">
+        <h2>Let's Work Together</h2>
+        <p>
+          I'm always open to discussing new projects, creative ideas or
+          opportunities to be part of your vision.
+        </p>
+        <a href="mailto:vagenodipa@gmail.com" class="btn">Get In Touch</a>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 Vince Aaron Genodipa. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
