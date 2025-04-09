@@ -408,14 +408,23 @@
         <h2 class="section-title">Partners/Clients</h2>
         <div class="carousel">
           <div class="carousel-track">
-            <img src="assets/BLINDHEROS-LOGO.png" alt="Partner 1" />
-            <img src="assets/DONALD-POLLOCK-LOGO.png" alt="Partner 2" />
-            <img src="assets/MANHATAN-LOGO.png" alt="Partner 3" />
-            <img src="assets/METROSCREEN-FILMS-LOGO.png" alt="Partner 4" />
-            <img src="assets/NOBLEWORKS-MEDIA-LOGO.png" alt="Partner 5" />
-            <img src="assets/RAFI-LOGO.png" alt="Partner 5" />
-            <img src="assets/RAFI-MFI-LOGO.webp" alt="Partner 5" />
-            <img src="assets/SINGLIFE-LOGO.png" alt="Partner 5" />
+            <img src="assets/BLINDHEROS-LOGO.png" alt="BlindHeros" />
+            <img
+              src="assets/DONALD-POLLOCK-LOGO.png"
+              alt="DonaldPollock Publication"
+            />
+            <img src="assets/MANHATAN-LOGO.png" alt="Manhatan" />
+            <img
+              src="assets/METROSCREEN-FILMS-LOGO.png"
+              alt="MetroScreen Films"
+            />
+            <img
+              src="assets/NOBLEWORKS-MEDIA-LOGO.png"
+              alt="NobleWorks Media"
+            />
+            <img src="assets/RAFI-LOGO.png" alt="Rafi" />
+            <img src="assets/RAFI-MFI-LOGO.webp" alt="Rafi MFI" />
+            <img src="assets/SINGLIFE-LOGO.png" alt="Singlife" />
           </div>
         </div>
       </section>
@@ -485,15 +494,23 @@
     const track = document.querySelector(".carousel-track");
     const images = Array.from(track.children);
 
-    // Duplicate images for seamless scrolling
+    // Duplicate images to create a seamless loop
     images.forEach((image) => {
       const clone = image.cloneNode(true);
       track.appendChild(clone);
     });
 
-    // Ensure the animation restarts seamlessly
-    track.addEventListener("animationiteration", () => {
-      track.style.transform = "translateX(0)";
-    });
+    let scrollAmount = 0;
+
+    function scrollCarousel() {
+      scrollAmount -= 1; // Adjust speed by changing this value
+      if (Math.abs(scrollAmount) >= track.scrollWidth / 2) {
+        scrollAmount = 0; // Reset scroll position to create seamless effect
+      }
+      track.style.transform = `translateX(${scrollAmount}px)`;
+      requestAnimationFrame(scrollCarousel);
+    }
+
+    scrollCarousel();
   </script>
 </html>

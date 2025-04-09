@@ -395,7 +395,7 @@ html {
 .carousel-track {
   display: flex;
   gap: 2rem;
-  animation: scroll 15s linear infinite;
+  will-change: transform;
 }
 
 .carousel-track img {
