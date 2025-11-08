@@ -452,6 +452,11 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  align-items: center;
+}
+
+.contact-iframe-hint p {
+  margin: 0;
 }
 
 .contact-iframe-hint a {
