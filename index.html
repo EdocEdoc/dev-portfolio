@@ -62,13 +62,73 @@
 
       <section class="section">
         <p class="summary">
-          Experienced Mobile and Web Developer with 4 years of expertise in
+          Experienced Mobile and Web Developer with
+          <span class="experience-years">5</span> years of expertise in
           cross-platform development for iOS, Android, and Web Applications.
           Skilled in building and deploying full-stack applications using modern
           frameworks and technologies. Proficient in React Native, Xamarin,
           React.js, and .NET, with a strong background in UI/UX design, cloud
           services, and version control.
         </p>
+      </section>
+
+      <section class="section award-highlight">
+        <h2 class="section-title">Award Spotlight</h2>
+        <div class="award-card">
+          <div class="award-details">
+            <p class="award-eyebrow">
+              <a
+                href="https://hf.cebutechcommunities.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Hacktoberfest 2025</a
+              >
+            </p>
+            <h3>Best Use of AI Winner</h3>
+            <p>
+              Quiz Attack was recognized at the Cebu chapter of
+              <a
+                href="https://hf.cebutechcommunities.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Hacktoberfest 2025</a
+              >
+              for pushing the boundaries of applied AI in education, delivering
+              real-time quiz generation and battles for students using Google
+              Gemini and Firebase.
+            </p>
+            <ul>
+              <li>Real-time AI-generated lectures and quizzes</li>
+              <li>Head-to-head student quiz battles</li>
+              <li>Built with React, Firebase, and Google Gemini</li>
+            </ul>
+            <div class="award-actions">
+              <a
+                href="assets/Vince%20Aaron%20Genodipa%20-%20Best%20Use%20of%20AI.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+                >View Certificate</a
+              >
+              <a href="https://quizattack.app/" target="_blank">Visit Quiz Attack</a>
+            </div>
+          </div>
+          <div class="award-certificate">
+            <iframe
+              src="assets/Vince%20Aaron%20Genodipa%20-%20Best%20Use%20of%20AI.pdf#view=FitH"
+              title="Quiz Attack - Best Use of AI Certificate"
+              loading="lazy"
+            ></iframe>
+            <p class="certificate-hint">
+              Having trouble viewing? <a
+                href="assets/Vince%20Aaron%20Genodipa%20-%20Best%20Use%20of%20AI.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Download the certificate</a
+              >.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -370,10 +430,17 @@
                 <p>
                   A competitive 1v1 quiz battle web app where students challenge
                   each other using AI-generated lectures and quizzes. Built with
-                  React, Firebase, and Google Gemini.
+                  React, Firebase, and Google Gemini. Awarded Best Use of AI at
+                  Hacktoberfest 2025.
                 </p>
                 <div class="project-links">
                   <a href="https://quizattack.app/" target="_blank">Visit Site</a>
+                  <a
+                    href="assets/Vince%20Aaron%20Genodipa%20-%20Best%20Use%20of%20AI.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View Certificate</a
+                  >
                 </div>
               </div>
             </article>
@@ -781,8 +848,9 @@
           <div class="about-content">
             <p>
               I'm a passionate software engineer with a focus on creating
-              efficient, scalable, and user-friendly digital solutions. With 4
-              years of experience in cross-platform development, I've
+              efficient, scalable, and user-friendly digital solutions. With
+              <span class="experience-years">5</span> years of experience in
+              cross-platform development, I've
               successfully delivered numerous mobile and web applications across
               various industries.
             </p>
@@ -829,6 +897,17 @@
           opportunities to be part of your vision.
         </p>
         <a href="mailto:vagenodipa@gmail.com" class="btn">Get In Touch</a>
+        <div class="contact-iframe-wrapper">
+          <iframe
+            src="https://vagenodipa.lynkaro.me/"
+            title="Lynkaro Contact Form"
+            loading="lazy"
+            frameborder="0"
+          ></iframe>
+          <p class="contact-iframe-hint">
+            Prefer email? Reach out via <a href="mailto:vagenodipa@gmail.com">vagenodipa@gmail.com</a>.
+          </p>
+        </div>
       </div>
 
       <footer>
@@ -837,6 +916,15 @@
     </div>
   </body>
   <script>
+    const EXPERIENCE_START_YEAR = 2020;
+    const yearsExperience = Math.max(
+      1,
+      new Date().getFullYear() - EXPERIENCE_START_YEAR
+    );
+    document.querySelectorAll(".experience-years").forEach((element) => {
+      element.textContent = yearsExperience;
+    });
+
     const track = document.querySelector(".carousel-track");
     const images = Array.from(track.children);
 

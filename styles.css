@@ -432,6 +432,30 @@ footer {
   text-align: center;
 }
 
+.contact-iframe-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.contact-iframe-wrapper iframe {
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: #0f0f0f;
+}
+
+.contact-iframe-hint {
+  margin-top: 0.75rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-iframe-hint a {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
 .btn {
   display: inline-block;
   background: var(--gradient-1);
@@ -447,6 +471,67 @@ footer {
 .btn:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(100, 108, 255, 0.5);
+}
+
+.award-highlight .award-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left, rgba(100, 108, 255, 0.25), transparent),
+    var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.award-details h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.award-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.75rem;
+}
+
+.award-details ul {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.award-details ul li {
+  margin-bottom: 0.5rem;
+}
+
+.award-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.award-actions .btn {
+  margin-right: 0.5rem;
+}
+
+.award-certificate iframe {
+  width: 100%;
+  min-height: 360px;
+  border: none;
+  border-radius: 12px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.certificate-hint {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .about-grid {
@@ -486,6 +571,16 @@ footer {
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .award-highlight .award-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .award-actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .name {
