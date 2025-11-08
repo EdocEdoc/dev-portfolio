@@ -449,11 +449,19 @@ footer {
   margin-top: 0.75rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .contact-iframe-hint a {
   color: var(--primary-purple);
   text-decoration: underline;
+}
+
+.lynkaro-credit {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .btn {
